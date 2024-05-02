@@ -1,0 +1,15 @@
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.csproj.AssemblyReference.cache
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.GeneratedMSBuildEditorConfig.editorconfig
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.AssemblyInfoInputs.cache
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.AssemblyInfo.cs
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.csproj.CoreCompileInputs.cache
+/home/liamgatter/dev/C#/bfcomp/bin/Debug/net7.0/bfcomp
+/home/liamgatter/dev/C#/bfcomp/bin/Debug/net7.0/bfcomp.deps.json
+/home/liamgatter/dev/C#/bfcomp/bin/Debug/net7.0/bfcomp.runtimeconfig.json
+/home/liamgatter/dev/C#/bfcomp/bin/Debug/net7.0/bfcomp.dll
+/home/liamgatter/dev/C#/bfcomp/bin/Debug/net7.0/bfcomp.pdb
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.dll
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/refint/bfcomp.dll
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.pdb
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/bfcomp.genruntimeconfig.cache
+/home/liamgatter/dev/C#/bfcomp/obj/Debug/net7.0/ref/bfcomp.dll
