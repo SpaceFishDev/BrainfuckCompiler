@@ -40,7 +40,16 @@
                     System.Diagnostics.Process.Start("fasm", "out.asm");
                     Thread.Sleep(400);
                     FileInfo f = new("out");
-                    f.MoveTo(args[2]);
+                    if (!File.Exists(args[2]))
+                    {
+                        f.MoveTo(args[2]);
+                    }
+                    else
+                    {
+                        FileInfo f2 = new(args[2]);
+                        f2.Delete();
+                        f.MoveTo(args[2]);
+                    }
                     System.Diagnostics.Process.Start("chmod", $"+x {args[2]}");
                     return;
                 }
@@ -70,9 +79,8 @@
         }
 
     }
-    public static void Main()
+    public static void Main(string[] args)
     {
-        string[] args = { "comp", "main.bf", "main" };
         HandleArgs(args);
     }
 }

@@ -24,35 +24,28 @@ public class Compiler
         CompileStuff.Add("-", ";SUB\nmov eax, mem\nmov ebx, [pos]\nadd eax, ebx\nmov ebx, REP\nsub [eax], ebx\n");
         CompileStuff.Add(">", ";RIGHT\nmov eax, pos\nmov ebx, REP\nadd [eax], ebx\n");
         CompileStuff.Add("<", ";LEFT\nmov eax, pos\nmov ebx, REP\nsub [eax], ebx\n");
-        CompileStuff.Add("[", ";loop\nDOTlabelLN:\n");
-        CompileStuff.Add("]", ";endloop\nmov ebx, [pos]\nmov eax, mem\nadd eax, ebx\nmov ebx, [eax]\ncmp ebx, 0\njne labelLN\n");
+        CompileStuff.Add("[", ";loop\nlabelLN:\n");
+        CompileStuff.Add("]", ";endloop\nmov ebx, [pos]\nmov eax, mem\nadd eax, ebx\nmov ebx, [eax]\ncmp ebx, 0\njg labelLN\n");
         CompileStuff.Add(".", ";print\nmov eax, mem\nmov ebx, [pos]\nadd eax, ebx\nmov ebx, [eax]\npush ebx\nmov eax, 4\nmov ebx, 1\nmov ecx, esp\nmov edx, 1\nint 0x80\nadd esp, 4\n");
         int ln = 0;
-        int num = 0;
+        Stack<string> labels = new();
         foreach (var t in Tokens)
         {
             if (t.Type == "[")
             {
+                string lab = ln + "_" + new Random().Next(1, 100000).ToString("");
+                labels.Push(lab);
                 ++ln;
             }
             if (CompileStuff.ContainsKey(t.Type))
             {
-                if (ln > 1)
-                {
-                    dat += CompileStuff[t.Type].Replace("REP", t.Repititions.ToString()).Replace("LN", num.ToString()).Replace("DOT", ".");
-                }
-                else
-                {
-                    dat += CompileStuff[t.Type].Replace("REP", t.Repititions.ToString()).Replace("LN", num.ToString()).Replace("DOT", "");
-                }
+                string currRnd = new Random().Next(1000, 1000000).ToString();
+                dat += CompileStuff[t.Type].Replace("REP", t.Repititions.ToString()).Replace("LN", (labels.Count != 0) ? labels.Peek() : "").Replace("RND", currRnd);
             }
             if (t.Type == "]")
             {
+                labels.Pop();
                 --ln;
-                if (ln == 0)
-                {
-                    num++;
-                }
             }
 
         }
